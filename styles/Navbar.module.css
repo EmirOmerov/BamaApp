@@ -1,0 +1,97 @@
+.navbarUL {
+  list-style-type: none;
+}
+
+.SignOutBtn {
+  border-radius: 5px;
+  border: 1px solid white;
+  position: relative;
+  left: 34.5cm;
+  bottom: 5rem;
+}
+
+.home {
+  position: absolute;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  top: 40px;
+  left: 290px;
+  height: 50px;
+  font-size: 35px;
+}
+
+.home:hover {
+  transform: translateY(5px);
+  color: aqua;
+}
+
+.account {
+  position: absolute;
+  text-transform: uppercase;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  left: 480px;
+  height: 50px;
+  top: 35px;
+  font-size: 35px;
+}
+.account:hover {
+  transform: translateY(2px);
+  color: aqua;
+}
+.trans {
+  position: absolute;
+  text-transform: uppercase;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  top: 35px;
+  left: 720px;
+  height: 50px;
+  font-size: 35px;
+}
+.trans:hover {
+  color: aqua;
+  transform: translateY(2px);
+}
+.converter {
+  position: absolute;
+  text-transform: uppercase;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  top: 35px;
+  right: 310px;
+  height: 50px;
+  font-size: 35px;
+}
+.converter:hover {
+  color: aqua;
+  transform: translateY(2px);
+}
+
+.logoNav {
+  position: relative;
+  height: 90px;
+  width: 110px;
+  left: 2rem;
+  top: 1rem;
+  margin-bottom: 10px;
+  padding: 2px;
+  border: 3px solid rgb(1, 172, 252);
+  background-color: rgb(18, 13, 31);
+}
+
+.navBarCom {
+  height: 130px;
+  position: relative;
+  width: 100%;
+  top: 0;
+  margin-bottom: 5px;
+  border-bottom: 2px solid rgb(83, 191, 241);
+}
+.contact {
+  top: 40px;
+  position: absolute;
+  right: 250px;
+}
+.main-nav-active {
+  color: aqua;
+  border-bottom: 2px solid rgb(242, 242, 247);
+}

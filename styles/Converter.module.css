@@ -1,0 +1,105 @@
+.chartComponent {
+  position: absolute;
+}
+.chartTXT {
+  position: relative;
+}
+.ConverterComponent {
+  position: absolute;
+  border: 3px solid blue;
+  width: 30rem;
+  height: 24rem;
+  left: 2rem;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  top: 13.5rem;
+  border-radius: 5px;
+}
+.InputConverter {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: center;
+  padding-left: 2rem;
+}
+.textComp {
+  text-align: center;
+  padding-top: 0.5rem;
+}
+.listCur1 {
+  position: relative;
+  top: 0.5rem;
+}
+.listCur2 {
+  display: flex;
+  position: relative;
+  left: 14rem;
+  bottom: 10rem;
+}
+.currencyTXT {
+  color: aqua;
+}
+.chartComponent {
+  position: absolute;
+  width: 30rem;
+  left: 35rem;
+  top: 13.5rem;
+  height: 24rem;
+  padding: 0;
+  background-color: black;
+  border: 3px solid blue;
+  border-radius: 5px;
+}
+.chartText {
+  position: absolute;
+  color: aqua;
+  bottom: 24.9rem;
+  left: 1rem;
+  width: 40rem;
+  text-transform: uppercase;
+}
+.converterText {
+  position: absolute;
+  color: aqua;
+  bottom: 33rem;
+  left: 10rem;
+
+  text-transform: uppercase;
+}
+.reportProblem {
+  border-radius: 5px;
+  color: aqua;
+  position: absolute;
+  border: 3px solid blue;
+  right: 2rem;
+  height: 23.9rem;
+  top: 13.5rem;
+  width: 26rem;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+.inputReport {
+  left: 1rem;
+  width: 23.5rem;
+  border-radius: 2px;
+  position: relative;
+  margin: 0;
+  top: 1rem;
+  padding-bottom: 12rem;
+}
+.reportBtn {
+  position: relative;
+  top: 2rem;
+  right: 1rem;
+  left: 7.5rem;
+  border: 1px solid white;
+}
+.reportLabel {
+  position: relative;
+  left: 5.3rem;
+  top: 0.6rem;
+}

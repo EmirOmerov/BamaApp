@@ -1,0 +1,168 @@
+.currentAmount {
+  position: absolute;
+  left: 38.2%;
+  top: 10rem;
+  border: 5px solid blue;
+  border-radius: 8px;
+  color: aqua;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1.1rem;
+  padding-bottom: 0.8rem;
+  width: auto;
+  height: auto;
+  background-color: black;
+}
+.RecentReceived {
+  display: flex;
+  flex-direction: column;
+  width: 32rem;
+  border: 3px solid blue;
+  position: absolute;
+  left: 1rem;
+  top: 10rem;
+  height: 30rem;
+  border-radius: 8px;
+  background-color: black;
+}
+.RecentSent {
+  top: 10rem;
+  height: 30rem;
+  position: absolute;
+  flex-direction: column;
+  width: 32rem;
+  right: 1rem;
+  border: 3px solid blue;
+  border-radius: 8px;
+  background-color: black;
+}
+.TransBtns {
+  position: absolute;
+  left: 35.5%;
+  top: 16.6rem;
+}
+.sendTransactionsComponent {
+  position: absolute;
+  top: 24rem;
+  left: 37.2rem;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid blue;
+  width: 20rem;
+  height: 15rem;
+  padding-left: 4rem;
+  padding-top: 1.8rem;
+  background-color: black;
+  border-radius: 8px;
+}
+.inputSTData {
+  margin-bottom: 0.8rem;
+}
+.sendSTbtn {
+  top: 0.3rem;
+  left: 2.5rem;
+  border-radius: 8px;
+  border: 2px solid white;
+}
+.sendTotxt {
+  color: aqua;
+  position: relative;
+  left: 2.8rem;
+}
+.btnTrans {
+  border-radius: 8px;
+  border: 3px solid black;
+  color: black;
+  width: 12rem;
+  left: 1.5rem;
+}
+.recieveTransactionComponent {
+  position: absolute;
+  top: 24rem;
+  left: 37.2rem;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid blue;
+  width: 20rem;
+  height: 15rem;
+  padding-left: 4rem;
+  padding-top: 1.8rem;
+  background-color: black;
+  border-radius: 8px;
+}
+.recieveRTbtn {
+  top: 0.3rem;
+  left: 2.5rem;
+  border-radius: 8px;
+  border: 2px solid white;
+}
+.inputRTData {
+  margin-bottom: 0.8rem;
+}
+.sendTotxt2 {
+  color: aqua;
+  position: relative;
+  left: 0.5rem;
+}
+.RSTtxt {
+  color: aqua;
+  padding-left: 3.4rem;
+  padding-top: 0.4rem;
+}
+.RRTtxt {
+  color: aqua;
+  padding-left: 1.7rem;
+  padding-top: 0.4rem;
+}
+.RSTline {
+  border-bottom: 2px solid blue;
+}
+.RRTline {
+  border-bottom: 2px solid blue;
+}
+.logoTran {
+  position: absolute;
+  left: 41rem;
+  top: 24rem;
+  border: 3px solid rgb(1, 172, 252);
+  background-color: rgb(18, 13, 31);
+}
+.displayRecentData {
+  color: white;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0.6rem;
+}
+.listStyle {
+  margin-top: 0.3rem;
+  list-style-type: none;
+  padding-left: 0;
+  width: auto;
+  position: relative;
+  overflow-y: scroll; /* Add the ability to scroll */
+  -ms-overflow-style: none;
+  height: 26rem;
+}
+.listStyle::-webkit-scrollbar {
+  display: none;
+}
+.displeyRRT {
+  color: white;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.listRRTStyle {
+  margin-top: 0.3rem;
+  list-style-type: none;
+  padding-left: 0.5rem;
+  width: auto;
+  position: relative;
+  overflow-y: scroll; /* Add the ability to scroll */
+  -ms-overflow-style: none;
+  height: 26rem;
+}
+.listRRTStyle::-webkit-scrollbar {
+  display: none;
+}
