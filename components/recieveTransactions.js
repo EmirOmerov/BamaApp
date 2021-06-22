@@ -17,14 +17,14 @@ export default function RecieveTransactions({ updateRT }) {
       <h3 className={styles.sendTotxt2}>Request from:</h3>
       <form className="form-inline">
         <input
-          onChange={handleUser}
+          onInput={handleUser}
           placeholder="Name:"
           type="text"
           className={styles.inputRTData}
         />
       </form>
       <form className="form-inline">
-        <input onChange={handleAmount} placeholder="Amount:" type="number" />
+        <input onInput={handleAmount} placeholder="Amount:" type="number" />
       </form>
       <MDBBtn
         onClick={() => updateRT(newUser, newAmount)}

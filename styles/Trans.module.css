@@ -1,17 +1,22 @@
 .currentAmount {
   position: absolute;
-  left: 38.2%;
+  left: 41.2%;
   top: 10rem;
   border: 5px solid blue;
   border-radius: 8px;
   color: aqua;
   padding-left: 1rem;
   padding-right: 1rem;
-  padding-top: 1.1rem;
-  padding-bottom: 0.8rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
   width: auto;
   height: auto;
   background-color: black;
+  caret-color: transparent !important;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
 }
 .RecentReceived {
   display: flex;
@@ -24,6 +29,7 @@
   height: 30rem;
   border-radius: 8px;
   background-color: black;
+  caret-color: transparent !important;
 }
 .RecentSent {
   top: 10rem;
@@ -35,16 +41,23 @@
   border: 3px solid blue;
   border-radius: 8px;
   background-color: black;
+  caret-color: transparent !important;
 }
 .TransBtns {
   position: absolute;
-  left: 35.5%;
-  top: 16.6rem;
+  left: 25.9%;
+  top: 18.6rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+.TransBtns > button {
+  flex-basis: 25%;
 }
 .sendTransactionsComponent {
   position: absolute;
-  top: 24rem;
-  left: 37.2rem;
+  top: 25rem;
+  left: 38rem;
   justify-content: center;
   align-items: center;
   border: 2px solid blue;
@@ -68,18 +81,23 @@
   color: aqua;
   position: relative;
   left: 2.8rem;
+  caret-color: transparent !important;
 }
 .btnTrans {
   border-radius: 8px;
   border: 3px solid black;
   color: black;
-  width: 12rem;
-  left: 1.5rem;
+  width: 8rem;
+  left: 5.5rem;
+  font-size: 10px;
+  padding: 5px;
+  height: 3rem;
+  bottom: 1rem;
 }
 .recieveTransactionComponent {
   position: absolute;
-  top: 24rem;
-  left: 37.2rem;
+  top: 25rem;
+  left: 38rem;
   justify-content: center;
   align-items: center;
   border: 2px solid blue;
@@ -89,6 +107,7 @@
   padding-top: 1.8rem;
   background-color: black;
   border-radius: 8px;
+  caret-color: transparent !important;
 }
 .recieveRTbtn {
   top: 0.3rem;
@@ -98,6 +117,7 @@
 }
 .inputRTData {
   margin-bottom: 0.8rem;
+  caret-color: transparent !important;
 }
 .sendTotxt2 {
   color: aqua;
@@ -108,11 +128,13 @@
   color: aqua;
   padding-left: 3.4rem;
   padding-top: 0.4rem;
+  caret-color: transparent !important;
 }
 .RRTtxt {
   color: aqua;
   padding-left: 1.7rem;
   padding-top: 0.4rem;
+  caret-color: transparent !important;
 }
 .RSTline {
   border-bottom: 2px solid blue;
@@ -122,8 +144,8 @@
 }
 .logoTran {
   position: absolute;
-  left: 41rem;
-  top: 24rem;
+  left: 41.4rem;
+  top: 26.3rem;
   border: 3px solid rgb(1, 172, 252);
   background-color: rgb(18, 13, 31);
 }
@@ -133,6 +155,7 @@
   justify-content: center;
   align-items: center;
   padding-left: 0.6rem;
+  caret-color: transparent !important;
 }
 .listStyle {
   margin-top: 0.3rem;
@@ -165,4 +188,33 @@
 }
 .listRRTStyle::-webkit-scrollbar {
   display: none;
+}
+.WithdrawComponent {
+  position: absolute;
+  top: 25rem;
+  left: 38rem;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid blue;
+  width: 20rem;
+  height: 15rem;
+  padding-left: 4rem;
+  padding-top: 1.8rem;
+  background-color: black;
+  border-radius: 8px;
+}
+.withdrawBtn {
+  top: 1.3rem;
+  left: 1.5rem;
+  border-radius: 8px;
+  border: 2px solid white;
+}
+.inputWithdraw {
+  margin-top: 0.8rem;
+}
+.withdrawtxt {
+  color: aqua;
+  padding-left: 1.7rem;
+  padding-top: 0.4rem;
+  caret-color: transparent !important;
 }

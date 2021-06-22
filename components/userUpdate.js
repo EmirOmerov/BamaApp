@@ -125,7 +125,9 @@ export default function UserUpdate({
         <input
           onChange={handlePassword}
           placeholder="Password..."
-          type="text"
+          type="number"
+          min="0"
+          maxLength="8"
           className={styles.inputData}
         />
         <button id="btn-LastNameEditConfirm" className={styles.inputBtn}>

@@ -6,6 +6,7 @@ import User from "../components/user";
 import { MDBBtn } from "mdbreact";
 import UserUpdate from "../components/userUpdate";
 import BankCard from "../components/bankCard";
+import FooterPage from "../components/footer";
 
 export default function Account() {
   const [users, setUser] = useState([]);
@@ -74,7 +75,6 @@ export default function Account() {
   return (
     <div>
       <Navbar />
-      <h1 className={styles.accountInformarion}>Account Information:</h1>
       <MDBBtn
         color={"blue"}
         className={styles.updateBtn}
@@ -93,9 +93,14 @@ export default function Account() {
       </div>
 
       <div className={styles.noteBottom}>
-        <h3>Note: Every change you made in your Account Infromation,</h3>
-        <h3>will be sent to you for confirmation via Email.</h3>
-        <h3>For further information contact your Bank's customer service.</h3>
+        <h3>
+          Every change you make in your{" "}
+          <span style={{ color: "aqua" }}>Account Infromation</span>,
+        </h3>
+        <h3>
+          will be sent to you for confirmation via{" "}
+          <span style={{ color: "aqua" }}>Email</span>.
+        </h3>
       </div>
       {showUpdate ? (
         <UserUpdate
@@ -125,6 +130,9 @@ export default function Account() {
           />
         );
       })}
+      <div>
+        <FooterPage />
+      </div>
     </div>
   );
 }

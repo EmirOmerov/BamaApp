@@ -15,8 +15,10 @@ export default function User({
   CVC,
 }) {
   const [showPass, setShowPass] = useState(false);
+  const [changeBtnTitle, setBtnTitle] = useState(false);
   const handlePass = () => {
     setShowPass(!showPass);
+    setBtnTitle(!changeBtnTitle);
   };
   return (
     <div className={styles.CurrentState}>
@@ -36,7 +38,7 @@ export default function User({
         <span className={styles.userTags}>Password: </span>{" "}
         {showPass ? <strong> {Password}</strong> : "*******"}
         <button className={styles.showPassBtn} onClick={() => handlePass()}>
-          SHOW
+          {changeBtnTitle ? "Hide" : "Show"}
         </button>
       </h4>
       <h4>

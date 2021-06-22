@@ -208,7 +208,7 @@
   height: 321px;
   overflow-y: scroll; /* Add the ability to scroll */
   -ms-overflow-style: none;
-  background-color: rgba(0, 0, 0, 0.342);
+  background-color: rgba(0, 0, 0, 0.966);
   border: 1px solid aqua;
   border-radius: 5px;
   justify-content: center;

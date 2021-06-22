@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import PaymentCard from "react-payment-card-component";
 import styles from "../styles/Account.module.css";
 import { MDBBtn } from "mdbreact";
+import dynamic from "next/dynamic";
+const PaymentCard = dynamic(() => import("react-payment-card-component"), {
+  ssr: false,
+});
 
 export default function BankCard({ number, holderName, expiration, cvv }) {
   const [flipped, setFlip] = useState(false);
@@ -10,8 +13,9 @@ export default function BankCard({ number, holderName, expiration, cvv }) {
   };
   return (
     <div>
-      <div className={styles.CardBorder}>
+      <div className={styles.CardBorder} onClick={() => FlipCard()}>
         <PaymentCard
+          classNamePrefix="select"
           bank="bradesco"
           model="prime"
           type="black"
@@ -21,15 +25,9 @@ export default function BankCard({ number, holderName, expiration, cvv }) {
           holderName={holderName}
           expiration={expiration}
           flipped={flipped}
+          class
         />
       </div>
-      <MDBBtn
-        color={"blue"}
-        className={styles.FlipCardBtn}
-        onClick={() => FlipCard()}
-      >
-        Flip!
-      </MDBBtn>
     </div>
   );
 }

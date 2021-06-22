@@ -16,14 +16,14 @@ export default function SendTransactions({ updateST }) {
       <h3 className={styles.sendTotxt}>Send to:</h3>
       <form className="form-inline">
         <input
-          onChange={handleName}
+          onInput={handleName}
           placeholder="Name:"
           type="text"
           className={styles.inputSTData}
         />
       </form>
       <form className="form-inline">
-        <input onChange={handleAmount} placeholder="Amount:" type="number" />
+        <input onInput={handleAmount} placeholder="Amount:" type="number" />
       </form>
       <MDBBtn
         onClick={() => updateST(newName, newAmount)}

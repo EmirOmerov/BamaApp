@@ -6,9 +6,11 @@ import RegisterComponent from "../components/registerComponent";
 export default function Login(props) {
   const [register, setRegister] = useState(false);
   const { password, setPassword, email, setEmail, handleLogin } = props;
+  const [changeBtnTitle, setBtnTitle] = useState(false);
 
   const showRegister = () => {
     setRegister(!register);
+    setBtnTitle(!changeBtnTitle);
   };
 
   const welcomeTitle = () => {
@@ -43,7 +45,6 @@ export default function Login(props) {
                 success="right"
                 onChange={(e) => {
                   e.preventDefault();
-                  console.log(e.target.value);
                   setEmail(e.target.value);
                 }}
               />
@@ -60,10 +61,21 @@ export default function Login(props) {
               />
             </div>
             <div className={styles.LogBtns}>
-              <MDBBtn color={"blue"} onClick={handleLogin}>
+              <MDBBtn
+                color={"blue"}
+                onClick={() => {
+                  if (!email) {
+                    return alert("You are not registered");
+                  } else {
+                    return handleLogin();
+                  }
+                }}
+              >
                 Login
               </MDBBtn>
-              <MDBBtn onClick={() => showRegister()}>Register</MDBBtn>
+              <MDBBtn onClick={() => showRegister()}>
+                {changeBtnTitle ? "Cancel" : "Register"}
+              </MDBBtn>
               {register ? <RegisterComponent /> : welcomeTitle()}
             </div>
           </form>

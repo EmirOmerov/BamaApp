@@ -8,12 +8,67 @@ import SendTransactions from "../components/sendTransactions";
 import RecieveTransactions from "../components/recieveTransactions";
 import FooterPage from "../components/footer";
 
+const DepozitComponent = ({ updateDP }) => {
+  const [newAmount, setNewAmount] = useState();
+  return (
+    <div className={styles.WithdrawComponent}>
+      <h3 className={styles.withdrawtxt}>Depozit:</h3>
+      <form className="form-inline">
+        <input
+          onInput={(e) => {
+            e.preventDefault();
+            setNewAmount(e.target.value);
+          }}
+          placeholder="Amount:"
+          type="number"
+          className={styles.inputWithdraw}
+        />
+      </form>
+      <MDBBtn
+        onClick={() => updateDP(newAmount)}
+        color={"blue"}
+        className={styles.withdrawBtn}
+      >
+        Depozit
+      </MDBBtn>
+    </div>
+  );
+};
+
+const WithdrawComponent = ({ updateWD }) => {
+  const [newAmount, setNewAmount] = useState();
+  return (
+    <div className={styles.WithdrawComponent}>
+      <h3 className={styles.withdrawtxt}>Withdraw:</h3>
+      <form className="form-inline">
+        <input
+          onInput={(e) => {
+            e.preventDefault();
+            setNewAmount(e.target.value);
+          }}
+          placeholder="Amount:"
+          type="number"
+          className={styles.inputWithdraw}
+        />
+      </form>
+      <MDBBtn
+        onClick={() => updateWD(newAmount)}
+        color={"blue"}
+        className={styles.withdrawBtn}
+      >
+        Withdraw
+      </MDBBtn>
+    </div>
+  );
+};
+
 export default function transaction() {
   const [currentAmount, setCurrentAmount] = useState(100);
   const [showST, setST] = useState(false);
   const [showRT, setRT] = useState(false);
-  const [newUser, setNewUser] = useState("");
-  const [newAmount, setNewAmount] = useState("");
+  const [showWD, setWD] = useState(false);
+  const [showDP, setDP] = useState(false);
+
   const [sentData, setSentData] = useState([
     {
       sendName: "Emir Omerovic",
@@ -47,11 +102,28 @@ export default function transaction() {
   const handleST = () => {
     setST(!showST);
     setRT(false);
+    setWD(false);
+    setDP(false);
   };
   const handleRT = () => {
     setRT(!showRT);
     setST(false);
+    setWD(false);
+    setDP(false);
   };
+  const handleWD = () => {
+    setWD(!showWD);
+    setRT(false);
+    setST(false);
+    setDP(false);
+  };
+  const handleDP = () => {
+    setDP(!showDP);
+    setRT(false);
+    setST(false);
+    setWD(false);
+  };
+
   //update the RSTn component
   const updateST = (param, paramAmount) => {
     setSentData((sentData) => [
@@ -61,10 +133,11 @@ export default function transaction() {
       },
       ...sentData,
     ]);
-    setCurrentAmount(parseInt(currentAmount) - parseInt(paramAmount));
+    setCurrentAmount(parseFloat(currentAmount) - parseFloat(paramAmount));
     console.log(param);
     console.log(paramAmount);
   };
+
   //update the RRT component
   const updateRT = (param2, paramAmount2) => {
     setRecieveData((recieveData) => [
@@ -74,15 +147,29 @@ export default function transaction() {
       },
       ...recieveData,
     ]);
-    setCurrentAmount(parseInt(currentAmount) + parseInt(paramAmount2));
+    setCurrentAmount(parseFloat(currentAmount) + parseFloat(paramAmount2));
   };
+
+  const updateWD = (updateAmount) => {
+    setCurrentAmount(parseFloat(currentAmount) - parseFloat(updateAmount));
+  };
+  const updateDP = (updateAmount02) => {
+    setCurrentAmount(parseFloat(currentAmount) + parseFloat(updateAmount02));
+  };
+
   return (
     <div>
       <Navbar />
       <div className={styles.currentAmount}>
+        <h2>Current Amount</h2>
         <h2>
-          Current Amount:{" "}
-          <span style={{ color: "white" }}>{currentAmount}KM</span>
+          <span
+            style={{
+              color: "white",
+            }}
+          >
+            {currentAmount}KM
+          </span>
         </h2>
       </div>
       <div className={styles.RecentReceived}>
@@ -93,10 +180,16 @@ export default function transaction() {
       </div>
       <div className={styles.TransBtns}>
         <MDBBtn className={styles.btnTrans} onClick={() => handleST()}>
-          Send Transactions
+          {showST ? "Done" : "Send Transactions"}
+        </MDBBtn>
+        <MDBBtn className={styles.btnTrans} onClick={() => handleWD()}>
+          {showWD ? "Done" : "Withdraw"}
         </MDBBtn>
         <MDBBtn className={styles.btnTrans} onClick={() => handleRT()}>
-          Receive Transactions
+          {showRT ? "Done" : "Receive Transactions"}
+        </MDBBtn>
+        <MDBBtn className={styles.btnTrans} onClick={() => handleDP()}>
+          {showDP ? "Done" : "Depozit"}
         </MDBBtn>
       </div>
       {showST ? (
@@ -105,6 +198,8 @@ export default function transaction() {
         <img src={"/novilogo.png"} className={styles.logoTran} />
       )}
       {showRT ? <RecieveTransactions updateRT={updateRT} /> : null}
+      {showWD ? <WithdrawComponent updateWD={updateWD} /> : null}
+      {showDP ? <DepozitComponent updateDP={updateDP} /> : null}
       <div>
         <FooterPage />
       </div>

@@ -19,6 +19,7 @@
   left: 290px;
   height: 50px;
   font-size: 35px;
+  caret-color: transparent !important;
 }
 
 .home:hover {
@@ -34,6 +35,7 @@
   height: 50px;
   top: 35px;
   font-size: 35px;
+  caret-color: transparent !important;
 }
 .account:hover {
   transform: translateY(2px);
@@ -47,6 +49,7 @@
   left: 720px;
   height: 50px;
   font-size: 35px;
+  caret-color: transparent !important;
 }
 .trans:hover {
   color: aqua;
@@ -60,6 +63,7 @@
   right: 310px;
   height: 50px;
   font-size: 35px;
+  caret-color: transparent !important;
 }
 .converter:hover {
   color: aqua;
@@ -76,6 +80,7 @@
   padding: 2px;
   border: 3px solid rgb(1, 172, 252);
   background-color: rgb(18, 13, 31);
+  caret-color: transparent !important;
 }
 
 .navBarCom {
