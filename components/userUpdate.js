@@ -19,109 +19,67 @@ export default function UserUpdate({
   const [changeCountry, setCountry] = useState("");
 
   const handleFirstName = (e) => {
+    e.preventDefault();
     setName(e.target.value);
-    e.preventDefault();
   };
 
-  const firstNameHandle = (e) => {
-    updateFirstName(changeName);
-    e.preventDefault();
-  };
   const handleLastName = (e) => {
+    e.preventDefault();
     setLastName(e.target.value);
-    e.preventDefault();
   };
 
-  const lastNameHandle = (e) => {
-    updateLastName(changeLastName);
-    e.preventDefault();
-  };
   const handleEmail = (e) => {
+    e.preventDefault();
     setEmail(e.target.value);
-    e.preventDefault();
   };
 
-  const emailHandle = (e) => {
-    updateEmail(changeEmail);
-    e.preventDefault();
-  };
   const handlePassword = (e) => {
+    e.preventDefault();
     setPassword(e.target.value);
-    e.preventDefault();
   };
 
-  const passwordHandle = (e) => {
-    updatePassword(changePassword);
-    e.preventDefault();
-  };
   const handleCity = (e) => {
+    e.preventDefault();
     setCity(e.target.value);
-    e.preventDefault();
   };
 
-  const cityHandle = (e) => {
-    updateCity(changeCity);
-    e.preventDefault();
-  };
   const handleCountry = (e) => {
+    e.preventDefault();
     setCountry(e.target.value);
-    e.preventDefault();
   };
 
-  const countryHandle = (e) => {
-    updateCountry(changeCountry);
-    e.preventDefault();
-  };
   const handlePostCode = (e) => {
+    e.preventDefault();
     setPostCode(e.target.value);
-    e.preventDefault();
-  };
-
-  const postCodehandle = (e) => {
-    updatePostCode(changePostCode);
-    e.preventDefault();
   };
 
   return (
     <div className={styles.UpdateUserComponent}>
-      <form className="form-inline" onSubmit={firstNameHandle}>
+      <form className="form-inline" onSubmit={updateFirstName(changeName)}>
         <input
           onChange={handleFirstName}
           placeholder="First name..."
           type="text"
           className={styles.inputData}
         />
-        <button
-          type="submit"
-          id="btn-LastNameEditConfirm"
-          className={styles.inputBtn}
-        >
-          Save
-        </button>
       </form>
-      <form className="form-inline" onSubmit={lastNameHandle}>
+      <form className="form-inline" onSubmit={updateLastName(changeLastName)}>
         <input
           onChange={handleLastName}
           placeholder="Last name..."
           type="text"
           className={styles.inputData}
         />
-        <button id="btn-LastNameEditConfirm" className={styles.inputBtn}>
-          Save
-        </button>
       </form>
-      <form className="form-inline" onSubmit={emailHandle}>
+      <form className="form-inline" onSubmit={updateEmail(changeEmail)}>
         <input
           onChange={handleEmail}
           placeholder="Email..."
           type="text"
           className={styles.inputData}
         />
-        <button id="btn-LastNameEditConfirm" className={styles.inputBtn}>
-          Save
-        </button>
       </form>
-      <form className="form-inline" onSubmit={passwordHandle}>
+      <form className="form-inline" onSubmit={updatePassword(changePassword)}>
         <input
           onChange={handlePassword}
           placeholder="Password..."
@@ -130,42 +88,30 @@ export default function UserUpdate({
           maxLength="8"
           className={styles.inputData}
         />
-        <button id="btn-LastNameEditConfirm" className={styles.inputBtn}>
-          Save
-        </button>
       </form>
-      <form className="form-inline" onSubmit={cityHandle}>
+      <form className="form-inline" onSubmit={updateCity(changeCity)}>
         <input
           onChange={handleCity}
           placeholder="City..."
           type="text"
           className={styles.inputData}
         />
-        <button id="btn-LastNameEditConfirm" className={styles.inputBtn}>
-          Save
-        </button>
       </form>
-      <form className="form-inline" onSubmit={postCodehandle}>
+      <form className="form-inline" onSubmit={updatePostCode(changePostCode)}>
         <input
           onChange={handlePostCode}
           placeholder="Post Code..."
           type="text"
           className={styles.inputData}
         />
-        <button id="btn-LastNameEditConfirm" className={styles.inputBtn}>
-          Save
-        </button>
       </form>
-      <form className="form-inline" onSubmit={countryHandle}>
+      <form className="form-inline" onSubmit={updateCountry(changeCountry)}>
         <input
           onChange={handleCountry}
           placeholder="Country..."
           type="text"
           className={styles.inputData}
         />
-        <button id="btn-LastNameEditConfirm" className={styles.inputBtn}>
-          Save
-        </button>
       </form>
     </div>
   );

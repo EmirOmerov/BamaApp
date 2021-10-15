@@ -4,74 +4,97 @@ import fire, { db } from "../components/firebase/fire";
 import styles from "../styles/Account.module.css";
 import User from "../components/user";
 import { MDBBtn } from "mdbreact";
-import UserUpdate from "../components/userUpdate";
 import BankCard from "../components/bankCard";
 import FooterPage from "../components/footer";
 
 export default function Account() {
-  const [users, setUser] = useState([]);
   const [showUpdate, setShowUpdate] = useState(false);
-  const [newFirstName, setFirstName] = useState("");
-  const [newLastName, setLastName] = useState("");
-  const [newEmail, setNewEmail] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [newCity, setNewCity] = useState("");
-  const [newPostCode, setNewPostCode] = useState("");
-  const [newCountry, setNewCountry] = useState("");
-  const [newBank, setNewBank] = useState("");
-  const [newCardNumber, setNewCardNumber] = useState("");
-  const [newExDate, setNewExDate] = useState("");
-  const [newCVC, setNewCvC] = useState("");
   const [changeUpdatetxt, setUpdatetxt] = useState(false);
+  const dbFire = fire.database().ref("Users/");
+  const [userObject, setUserObject] = useState([]);
 
-  const updateFirstName = (param) => {
-    setFirstName(param);
-  };
-  const updateLastName = (param) => {
-    setLastName(param);
-  };
-  const updateEmail = (param) => {
-    setNewEmail(param);
-  };
-  const updatePassword = (param) => {
-    setNewPassword(param);
-  };
-  const updateCity = (param) => {
-    setNewCity(param);
-  };
-  const updatePostCode = (param) => {
-    setNewPostCode(param);
-  };
-  const updateCountry = (param) => {
-    setNewCountry(param);
-  };
-
-  const fetchUsers = async () => {
-    const response = db.collection("Users");
-    const data = await response.get();
-    data.docs.forEach((item) => {
-      setUser([...users, item.data()]);
-      setFirstName(item.data().firstName);
-      setLastName(item.data().lastName);
-      setNewEmail(item.data().Email);
-      setNewPassword(item.data().Password);
-      setNewCity(item.data().City);
-      setNewPostCode(item.data().PostCode);
-      setNewCountry(item.data().Country);
-      setNewBank(item.data().BankName);
-      setNewCvC(item.data().CVC);
-      setNewExDate(item.data().ExDate);
-      setNewCardNumber(item.data().cardNumber);
+  const getData = () => {
+    dbFire.on("value", (snapshot) => {
+      const dataArray = [];
+      snapshot.forEach((childsnap) => {
+        const data = childsnap.val();
+        dataArray.push({
+          key: data.key,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          Email: data.Email,
+          Password: data.Password,
+          BankName: data.BankName,
+          CVV: data.CVV,
+          City: data.City,
+          Country: data.Country,
+          ExDate: data.ExDate,
+          PostCode: data.PostCode,
+          CardNumber: data.CardNumber,
+        });
+      });
+      setUserObject(dataArray);
     });
   };
+
   useEffect(() => {
-    fetchUsers();
+    getData();
   }, []);
+
+  const handleFirstName = (event) => {
+    console.log(event.target.value);
+    event.preventDefault();
+    return dbFire.child("User01/").update({
+      firstName: event.target.value,
+    });
+  };
+  const handleLastName = (event) => {
+    event.preventDefault();
+    dbFire.child("User01/").update({
+      lastName: event.target.value,
+    });
+  };
+
+  const handleEmail = (event) => {
+    event.preventDefault();
+    dbFire.child("User01/").update({
+      Email: event.target.value,
+    });
+  };
+
+  const handlePassword = (event) => {
+    event.preventDefault();
+    dbFire.child("User01/").update({
+      Password: event.target.value,
+    });
+  };
+
+  const handleCity = (event) => {
+    event.preventDefault();
+    dbFire.child("User01/").update({
+      City: event.target.value,
+    });
+  };
+
+  const handleCountry = (event) => {
+    event.preventDefault();
+    dbFire.child("User01/").update({
+      Country: event.target.value,
+    });
+  };
+
+  const handlePostCode = (event) => {
+    e.preventDefault();
+    dbFire.child("User01/").update({
+      PostCode: event.target.value,
+    });
+  };
 
   const showUpdateInfo = () => {
     setShowUpdate(!showUpdate);
     setUpdatetxt(!changeUpdatetxt);
   };
+
   return (
     <div>
       <Navbar />
@@ -85,10 +108,10 @@ export default function Account() {
 
       <div className={styles.BankCardComponent}>
         <BankCard
-          number={newCardNumber}
-          holderName={newFirstName + " " + newLastName}
-          expiration={newExDate}
-          cvv={newCVC}
+          number={userObject.cardNumber}
+          holderName={userObject.firstName + " " + userObject.lastName}
+          expiration={userObject.ExDate}
+          cvv={userObject.CVV}
         />
       </div>
 
@@ -103,33 +126,88 @@ export default function Account() {
         </h3>
       </div>
       {showUpdate ? (
-        <UserUpdate
-          updateFirstName={updateFirstName}
-          updateLastName={updateLastName}
-          updateEmail={updateEmail}
-          updatePassword={updatePassword}
-          updateCity={updateCity}
-          updatePostCode={updatePostCode}
-          updateCountry={updateCountry}
-        />
+        //update component
+        <div className={styles.UpdateUserComponent}>
+          <form className="form-inline">
+            <input
+              onChange={(event) => handleFirstName(event)}
+              placeholder="First name..."
+              type="text"
+              className={styles.inputData}
+            />
+          </form>
+          <form className="form-inline">
+            <input
+              onChange={handleLastName}
+              placeholder="Last name..."
+              type="text"
+              className={styles.inputData}
+            />
+          </form>
+          <form className="form-inline">
+            <input
+              onChange={handleEmail}
+              placeholder="Email..."
+              type="text"
+              className={styles.inputData}
+            />
+          </form>
+          <form className="form-inline">
+            <input
+              onChange={handlePassword}
+              placeholder="Password..."
+              type="number"
+              min="0"
+              maxLength="8"
+              className={styles.inputData}
+            />
+          </form>
+          <form className="form-inline">
+            <input
+              onChange={handleCity}
+              placeholder="City..."
+              type="text"
+              className={styles.inputData}
+            />
+          </form>
+          <form className="form-inline">
+            <input
+              onChange={handlePostCode}
+              placeholder="Post Code..."
+              type="text"
+              className={styles.inputData}
+            />
+          </form>
+          <form className="form-inline">
+            <input
+              onChange={handleCountry}
+              placeholder="Country..."
+              type="text"
+              className={styles.inputData}
+            />
+          </form>
+        </div>
       ) : null}
-      {users.map((item) => {
-        return (
-          <User
-            firstName={newFirstName}
-            lastName={newLastName}
-            Email={newEmail}
-            Password={newPassword}
-            City={newCity}
-            PostCode={newPostCode}
-            Country={newCountry}
-            BankName={newBank}
-            cardNumber={newCardNumber}
-            ExDate={newExDate}
-            CVC={newCVC}
-          />
-        );
-      })}
+      {userObject
+        ? userObject.map((user) => {
+            return (
+              <User
+                firstName={user.firstName}
+                lastName={user.lastName}
+                Email={user.Email}
+                Password={user.Password}
+                City={user.City}
+                PostCode={user.PostCode}
+                Country={user.Country}
+                BankName={user.BankName}
+                cardNumber={user.CardNumber}
+                ExDate={user.ExDate}
+                CVC={user.CVV}
+              />
+            );
+          })
+        : ""}
+
       <div>
         <FooterPage />
       </div>

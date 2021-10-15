@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import fire from "../components/firebase/fire";
-import Link from "next/link";
 import { MDBBtn } from "mdbreact";
 import styles from "../styles/Navbar.module.css";
 import { useRouter } from "next/router";

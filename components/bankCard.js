@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "../styles/Account.module.css";
-import { MDBBtn } from "mdbreact";
 import dynamic from "next/dynamic";
 const PaymentCard = dynamic(() => import("react-payment-card-component"), {
   ssr: false,
@@ -25,7 +24,6 @@ export default function BankCard({ number, holderName, expiration, cvv }) {
           holderName={holderName}
           expiration={expiration}
           flipped={flipped}
-          class
         />
       </div>
     </div>
